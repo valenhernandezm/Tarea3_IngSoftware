@@ -37,7 +37,14 @@ class TestBilletera(unittest.TestCase):
         self.assertEquals(3,b4.balance)
         self.assertEquals(1,len(b4.creditos))
         
-        
+    def testConsumoCorrecto(self):
+        b5 = BilleteraElectronica("123" , "Luis", "Pacheco", 8374562, 450183)
+        b5.recargar(250, "02")
+        b5.consumir(100, "60", 450183)
+        self.assertEquals(150, b5.balance)
+        b5.recargar(50, "04")
+        b5.consumir(25, "40", 450183)
+        self.assertEquals(175, b5.balance)
 
 
 if __name__ == '__main__':
