@@ -10,7 +10,13 @@ from BilleteraVirtual import *
 class TestBilletera(unittest.TestCase):
     
     def testAtributoIDcreado(self):
-        billetera = BilleteraElectronica('456')
+        b1 = BilleteraElectronica('456')
+        
+    def testAtributosDueno(self):
+        b2 = BilleteraElectronica('456','Valentina','Hernandez', '21534334')
+        
+        
+        
         
         
         
