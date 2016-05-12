@@ -10,12 +10,22 @@ class PruebasVarias(unittest.TestCase):
     
     #Prueba de Malicia
     def testNombresCorrectos(self):
-        b = BilleteraElectronica("125", "áéíóä'ëïöüñ", "ÁÉÍÓÚÄ-ËÏÖÜÑ", "12345678", "123456")
+        b = BilleteraElectronica("125", "áéíóä'ëïöüñ", "ÁÉÍÓÚÄ-ËÏÖÜÑ", 54, 12345)
         self.assertEqual(b.nombres, "áéíóä'ëïöüñ", 'Nombre con caracteres especiales Correcto')
     
+    #Prueba de Malicia
     def testPinNoNumerico(self):
-        b = BilleteraElectronica('123', 'Valen','Hernandez', '21534', 'abc')
+        b = BilleteraElectronica('123', 'Valen','Hernandez', 24534, 123)
         self.assertTrue(isinstance(b.PIN, int))
         
+    #PruebaFrontera    
+    def testCedulaNumerica(self):
+        b = BilleteraElectronica('123', 'Valen','Hernandez', "123", 123)
+        self.assertTrue(isinstance(b.CI, int))     
         
-        
+    #Prueba Malicia
+    def testCedulaNegativa(self):
+        b = BilleteraElectronica('123', 'Valen','Hernandez', -24534, 123)
+        self.assertRaises(Exception, b.CI)
+           
+      

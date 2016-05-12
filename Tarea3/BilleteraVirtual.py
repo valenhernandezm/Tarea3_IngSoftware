@@ -18,15 +18,18 @@ class movimientos:
 
 class BilleteraElectronica(object):
     def __init__(self,ID, nombres, apellidos, CI, PIN):
-        if (isinstance(PIN, int)):
-            self.ID = ID 
-            self.nombres = nombres
-            self.apellidos = apellidos
-            self.CI = CI
-            self.PIN = PIN 
-            self.balance = 0
-            self.creditos = []
-            self.debitos = []
+        if (isinstance(PIN, int)) :
+            if (isinstance(CI, int) and CI > 0):
+                self.ID = ID 
+                self.nombres = nombres
+                self.apellidos = apellidos
+                self.CI = CI
+                self.PIN = PIN 
+                self.balance = 0
+                self.creditos = []
+                self.debitos = []
+            else:
+                raise Exception ('La cedula debe ser un valor numerico mayor que cero')
             
         else:
             raise Exception ('El PIN debe ser numerico')
