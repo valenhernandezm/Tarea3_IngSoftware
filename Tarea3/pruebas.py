@@ -20,7 +20,7 @@ class TestBilletera(unittest.TestCase):
     
     def testMetodoSaldo(self):
         b3 = BilleteraElectronica('456','Valentina','Hernandez', '21534334', 123)
-        b3.Saldo()
+        b3.saldo()
         
     def testCreditoyMetodoRecargar(self):
         b4 = BilleteraElectronica("759TgHJ1", "Pedro", "Perez", "5617234", 156)

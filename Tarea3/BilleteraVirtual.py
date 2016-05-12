@@ -12,9 +12,20 @@ class BilleteraElectronica(object):
         self.CI = CI
         self.PIN = PIN 
         self.balance = 0
+        self.creditos = []
+
         
-    def Saldo(self):
+        
+    def saldo(self):
         return self.balance
+    
+    def recargar (self, monto, fecha, identificador):
+        if monto <= 0:
+            raise Exception ("ERROR : No se pueden recargar montos negativos") 
+        else:
+            recarga = (monto,fecha,identificador) 
+            self.creditos.append(recarga)
+            self.balance += monto 
      
     
     
