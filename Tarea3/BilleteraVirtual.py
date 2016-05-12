@@ -52,3 +52,5 @@ class BilleteraElectronica(object):
                 consumo = movimientos(monto, fecha, identificador)
                 self.debitos.append(consumo)
                 self.balance -= monto
+
+    
