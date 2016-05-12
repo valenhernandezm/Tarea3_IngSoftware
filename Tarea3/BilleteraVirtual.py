@@ -3,6 +3,18 @@ Created on May 12, 2016
 
 @author: valentina
 '''
+from datetime import *
+import calendar
+import sys
+import time
+
+
+
+class movimientos:
+    def __init__(self, monto, fecha, ident):
+        self.monto = monto
+        self.fecha = fecha
+        self.ident = ident
 
 class BilleteraElectronica(object):
     def __init__(self,ID, nombres, apellidos, CI, PIN):
@@ -19,13 +31,13 @@ class BilleteraElectronica(object):
     def saldo(self):
         return self.balance
     
-    def recargar (self, monto, fecha, identificador):
+    def recargar (self, monto, identificador):
         if monto <= 0:
             raise Exception ("ERROR : No se pueden recargar montos negativos") 
         else:
-            recarga = (monto,fecha,identificador) 
+            fecha = time.strftime("%c")
+            recarga = movimientos(monto, fecha, identificador) 
             self.creditos.append(recarga)
             self.balance += monto 
      
-    
     
