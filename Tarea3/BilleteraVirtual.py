@@ -18,14 +18,18 @@ class movimientos:
 
 class BilleteraElectronica(object):
     def __init__(self,ID, nombres, apellidos, CI, PIN):
-        self.ID = ID 
-        self.nombres = nombres
-        self.apellidos = apellidos
-        self.CI = CI
-        self.PIN = PIN 
-        self.balance = 0
-        self.creditos = []
-        self.debitos = []
+        if (isinstance(PIN, int)):
+            self.ID = ID 
+            self.nombres = nombres
+            self.apellidos = apellidos
+            self.CI = CI
+            self.PIN = PIN 
+            self.balance = 0
+            self.creditos = []
+            self.debitos = []
+            
+        else:
+            raise Exception ('El PIN debe ser numerico')
 
         
         
