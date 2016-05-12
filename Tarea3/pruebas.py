@@ -25,9 +25,17 @@ class TestBilletera(unittest.TestCase):
     def testCreditoyMetodoRecargar(self):
         b4 = BilleteraElectronica("759TgHJ1", "Pedro", "Perez", "5617234", 156)
         b4.recargar(21000, "981yHJ32")
+        
+    def testDebitoyMetodoConsumir(self):
+        b5 = BilleteraElectronica("42Sbb90j" , "Luis", "Pacheco", 8374562, 450183)
+        fecha = datetime (2016, 6, 27, 2, 24)
+        b5.consumir(12000, fecha, "HOj234t1", 450183)
+        
 
 if __name__ == '__main__':
     unittest.main()
+    
+    
     
      
     
