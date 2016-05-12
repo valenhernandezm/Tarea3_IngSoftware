@@ -31,6 +31,14 @@ class TestBilletera(unittest.TestCase):
         b5.recargar(21000, "981yHJ32")
         b5.consumir(2, "HOj234t1", 450183)
         
+    def testRecargaCorrecta(self):
+        b4 = BilleteraElectronica("01", "Pedro", "Perez", "5617234", 156)
+        b4.recargar(3, "11")
+        self.assertEquals(3,b4.balance)
+        self.assertEquals(1,len(b4.creditos))
+        
+        
+
 
 if __name__ == '__main__':
     unittest.main()
