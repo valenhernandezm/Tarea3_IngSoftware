@@ -21,6 +21,9 @@ class TestPrograma(unittest.TestCase):
         def testPINInvalid(self):
             Billetera = BilleteraElectronica("42Sbb90j" , "Luis", "Pacheco", "8542847", "450183")
             Billetera.recargar(100, "HOj234t1")
-            self.assertRaises(Exception, Billetera.consumir, 500, "HOj234t1", 450183)
+            self.assertRaises(Exception, Billetera.consumir, 500, "HOj234t1", 460183)
         
-        
+        def testRecargaEsNegativa(self):
+            Billetera = BilleteraElectronica("40SbC92j" , "Giuli", "Latella", "8542847", "450183")
+            self.assertRaises(Exception, Billetera.recargar, -5000, "40SbC92j" )
+            
