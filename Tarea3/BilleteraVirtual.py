@@ -25,6 +25,7 @@ class BilleteraElectronica(object):
         self.PIN = PIN 
         self.balance = 0
         self.creditos = []
+        self.debitos = []
 
         
         
@@ -40,4 +41,14 @@ class BilleteraElectronica(object):
             self.creditos.append(recarga)
             self.balance += monto 
      
-    
+    def consumir (self, monto, identificador, PIN):
+        if self.PIN != PIN:
+            raise Exception ("ERROR : Pin Invalido")
+        else: 
+            if monto > self.balance:
+                raise Exception ("IMPOSIBLE : Saldo Insuficiente") 
+            else:
+                fecha = time.strftime("%c")
+                consumo = movimientos(monto, fecha, identificador)
+                self.debitos.append(consumo)
+                self.balance -= monto
