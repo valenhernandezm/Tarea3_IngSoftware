@@ -18,14 +18,16 @@ class PruebasVarias(unittest.TestCase):
         b = BilleteraElectronica('123', 'Valen','Hernandez', 24534, 123)
         self.assertTrue(isinstance(b.PIN, int))
         
-    #PruebaFrontera    
+    #PruebaMalicia  
     def testCedulaNumerica(self):
-        b = BilleteraElectronica('123', 'Valen','Hernandez', "123", 123)
+        b = BilleteraElectronica('123', 'Valen','Hernandez', 123, 123)
         self.assertTrue(isinstance(b.CI, int))     
         
     #Prueba Malicia
     def testCedulaNegativa(self):
-        b = BilleteraElectronica('123', 'Valen','Hernandez', -24534, 123)
+        b = BilleteraElectronica('123', 'Valen','Hernandez', 24534, 123)
         self.assertRaises(Exception, b.CI)
            
-      
+    def testCedulaCero(self):
+         b = BilleteraElectronica('123', 'Valen','Hernandez', 0, 123)
+         self.assertRaises(Exception, b.CI)
