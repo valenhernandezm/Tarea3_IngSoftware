@@ -29,5 +29,5 @@ class PruebasVarias(unittest.TestCase):
         self.assertRaises(Exception, b.CI)
            
     def testCedulaCero(self):
-         b = BilleteraElectronica('123', 'Valen','Hernandez', 0, 123)
+         b = BilleteraElectronica('123', 'Valen','Hernandez', 1, 123)
          self.assertRaises(Exception, b.CI)
